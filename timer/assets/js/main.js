@@ -1,36 +1,16 @@
-// Capturar o evento de submit do formulário
-const form = document.querySelector("#formIMC");
+const clock = document.querySelector('.clock');
+const init = document.querySelector('.init');
+const pause = document.querySelector('.pause');
+const reset = document.querySelector('.reset');
 
-form.addEventListener("submit", function (Evt) {
-    Evt.preventDefault();
-    let peso,altura,msg;
-    peso = document.getElementById("peso").value;
-    altura = document.getElementById("altura").value ;   
-    if (pesoValid() && alturaValid()) {
-        msg = "Seu IMC é de: "+IMCCalc(peso,altura);
-        document.querySelector("#resultado").innerHTML = `<p>${msg}</p>`;
-    }
+init.addEventListener('click',function(oEvent){
+    alert("Start button has been pressed")
 });
 
-const IMCCalc = (peso,altura) => {
-    let IMC = peso/(altura^2);
-    return IMC;
-};
+pause.addEventListener('click',function(oEvent){
+    alert("Pause button has been pressed")
+});
 
-const pesoValid = function () {
-    if (Number(document.getElementById("peso").value) != document.getElementById("peso").value) {
-        alert("Peso Inválido")
-        return false
-    } else {
-        return true
-    } 
-};
-
-const alturaValid = function () {
-    if (Number(document.getElementById("altura").value) != document.getElementById("altura").value) {
-        alert("Altura Inválida")
-        return false
-    } else {
-        return true
-    } 
-};
+reset.addEventListener('click',function(oEvent){
+    alert("Reset button has been pressed")
+});

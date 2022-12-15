@@ -63,3 +63,7 @@ form button:hover {
 form button:active {
     background: rgb(151, 98, 98);
 }
+
+.clock {
+    font-size: 3em;
+}
