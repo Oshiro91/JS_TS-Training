@@ -1,12 +1,11 @@
 let clockHour, clockMin, clockSeg
-clockHour = clockMin = clockSeg = "00"
 const clock = document.getElementById("clock");
 const init = document.querySelector('.init');
 const pause = document.querySelector('.pause');
 const reset = document.querySelector('.reset');
 const test = document.querySelector('.test');
 var addSeg
-refreshClock();
+restartClock();
 
 function refreshClock() {
     clock.innerHTML = `${clockHour}:${clockMin}:${clockSeg}`
