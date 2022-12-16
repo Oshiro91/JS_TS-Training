@@ -1,4 +1,4 @@
-let clockHour, clockMin, clockSeg
+let clockHour, clockMin, clockSeg,clockStatus
 const clock = document.getElementById("clock");
 const init = document.querySelector('.init');
 const pause = document.querySelector('.pause');
@@ -8,10 +8,12 @@ var addSeg
 restartClock();
 
 function refreshClock() {
-    clock.innerHTML = `${clockHour}:${clockMin}:${clockSeg}`
+    clock.innerHTML = `${clockHour}:${clockMin}:${clockSeg}${clockStatus}`
 };
 
 init.addEventListener('click', function (oEvent) {
+    clockStatus = "";
+    refreshClock();
     clock.classList.remove("paused");
     addSeg = setInterval(() => {
         addTime("seg")
@@ -20,6 +22,8 @@ init.addEventListener('click', function (oEvent) {
 
 pause.addEventListener('click', function (oEvent) {
     clearInterval(addSeg)
+    clockStatus = "(Paused)"
+    refreshClock()
     clock.classList.add("paused");
 });
 
@@ -77,5 +81,6 @@ function addTime(gran) {
 
 function restartClock(){
     clockHour = clockMin = clockSeg = "00"
+    clockStatus = ""
     refreshClock();
 }
