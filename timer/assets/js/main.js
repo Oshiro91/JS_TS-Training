@@ -29,10 +29,6 @@ reset.addEventListener('click', function (oEvent) {
     clock.classList.remove("paused");
 });
 
-test.addEventListener('click', function (oEvent) {
-    addTime("seg")
-});
-
 function addTime(gran) {
     switch (gran) {
         case "seg":
