@@ -61,7 +61,6 @@ function addTime(gran) {
         break;
 
         case "hour":
-            if (clockHour < 23) {
                 if (clockHour<9) {
                     clockHour++
                     clockHour = `0${clockHour}`
@@ -69,10 +68,6 @@ function addTime(gran) {
                     clockHour++
                 }
                 refreshClock()
-            } else {
-                clockHour = "00"
-                refreshClock()
-            }
         break
     
         default:
