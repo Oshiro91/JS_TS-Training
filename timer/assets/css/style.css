@@ -67,3 +67,7 @@ form button:active {
 .clock {
     font-size: 3em;
 }
+
+.paused {
+    color: red;
+}
