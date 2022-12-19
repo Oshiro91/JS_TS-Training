@@ -24,16 +24,27 @@ choreList.addEventListener('click', function(oEvent){
 
 function onInit () {
    const localChore = onGetLocalChores();
+   if (!localChore) { return }
    onPopulateChoreList(localChore);
 };
 
 function onGetLocalChores () {
-    return JSON.parse(localStorage.getItem("ChoresList"))
+    if(localStorage.getItem("ChoresList")){
+        let aChores =[]
+        const aReturnedChores = JSON.parse(localStorage.getItem("ChoresList"))
+        for (let i = 0; i < aReturnedChores.length; i++) {
+            let tChore = aReturnedChores[i].split(":")[1]
+            let oChore = {Chore:tChore}
+            aChores.push(oChore)
+        }
+        return aChores
+    }
+    return ""
 };
 
 function onPopulateChoreList(localChore) {
     localChore.forEach(element => {
-        createLiChore(element)
+        createLiChore(element.Chore)
     });
 };
 
@@ -62,10 +73,8 @@ function saveChoreList(){
     let aListChore = [];
     for (let i = 0; i < choreNum.length; i++) {
         const chore = choreNum[i].firstChild.textContent.trim()
-        aListChore.push(chore)        
+        aListChore.push(`Chore:${chore}`)        
     }
-    console.log(aListChore)
     aListChore = JSON.stringify(aListChore)
-    console.log(aListChore)
     localStorage.setItem("ChoresList",aListChore)
 };
